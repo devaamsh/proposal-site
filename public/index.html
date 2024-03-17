@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOVE</title>
+    <style>
+        body{
+            background-color: rgb(250, 194, 203);
+            display: flex;
+            flex-direction: column;
+        }
+        h1{
+            position: absolute;
+            margin-top: 200px;
+            margin-left: 400px;
+        }
+        .dev{
+            position: absolute;
+             display: flex;
+            margin-left: 550px;
+            margin-top: 250px;
+            flex-direction: row;
+            flex-basis: 50px;
+        }
+        button{
+            margin-right: 20px;
+            height: 30px;
+            width: 50px;
+            font-size: 15px;
+            background-color: white;
+            color: black;
+            border-color: pink;
+            border-radius: 10px;
+        }
+        button:hover{
+            background-color:  rgb(250, 194, 203);
+            color: white;
+            border-color: white;
+            border-radius: 10px;
+        }
+        img{
+            position: absolute;
+            height: 250px;
+            width: 250px;
+            margin-top: 300px;
+            margin-left: 480px;
+            border-radius: 20px;
+        }
+        .move{
+            animation-name: move;
+            animation-duration: 1000ms;
+            animation-fill-mode: forwards;
+        }
+        .next{
+            animation-name: next;
+            animation-duration: 1000ms;
+            animation-fill-mode: forwards;
+        }
+        @keyframes move {
+            from{transform: translateX(0);}
+            to{transform: translate(200px,200px);}
+        }
+        @keyframes next{
+            from{transform: translate(200px,200px);}
+            to{transform: translate(0);}
+        }
+        /* .now{
+            margin-left: 500px;
+        } */
+        .one{
+            height: 200px;
+            width: 200px;
+            border-radius: 200px;
+            background-color: rgb(243, 162, 175);
+            animation-name: pulse;
+            animation-duration: 1000ms;
+            animation-iteration-count: infinite;
+            margin-left: 500px;
+            margin-top: 250px;
+        }
+        .heart {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        background-color: pink;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 80px;
+        background-color: pink;
+        border-radius: 50px 50px 0 0;
+    }
+
+    .heart::before {
+        left: 50px;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+    }
+
+    .heart::after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+    }
+        @keyframes pulse{
+            0%{
+                transform: scale(1);
+                opacity: 1;
+            }
+            100%{
+                transform: scale(4);
+                opacity: 0.1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <h1>WILL U BE MY VALENTINE??</h1>
+    <div class="dev">
+    <button class="hi"><strong>YES</strong></button>
+    <button class="hello"><strong>NO</strong></button>
+    </div>
+    
+    <img src="./images/pleasee.jpeg">
+<script>
+    var f=0;
+    document.querySelector(".hello").addEventListener("click",()=>{
+        document.querySelector("h1").innerText="WILL U BE MY VALENTINE??";
+        document.querySelector("h1").style.marginLeft="450px";
+    if(f==0){
+        document.querySelector(".hello").classList.remove("next");
+    document.querySelector(".hello").classList.add("move");
+     document.querySelector("img").src = "./images/next.jpeg";
+    f=1;
+    }else{
+        document.querySelector(".hello").classList.remove("move");
+        document.querySelector(".hello").classList.add("next");
+        f=0;
+    }
+}
+    )
+    document.querySelector(".hi").addEventListener("click",()=>{
+        document.querySelector("img").src = "./images/love.jpeg";
+        document.querySelector("h1").innerText="I LOVE U TOO!!😘😘";
+        document.querySelector(".hello").classList.remove("move");
+        document.querySelector(".hello").classList.add("next");
+        f=0;
+    })
+</script>
+</body>
+
+</html>
